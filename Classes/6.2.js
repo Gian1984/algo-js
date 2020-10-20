@@ -24,7 +24,11 @@ class Rectangle {
         this.rectHeight = rectHeight;
     }
     collide(otherRectangle) {
-        if (otherRectangle.topLeftXPos <= this.topLeftXPos + this.rectWidth || otherRectangle.topLeftYPos <= this.topLeftYPos + this.rectHeight) {
+        if (this.topLeftXPos + this.rectWidth >= otherRectangle.topLeftXPos &&
+            this.topLeftYPos + this.rectHeight >= otherRectangle.topLeftYPos &&
+            otherRectangle.topLeftXPos + otherRectangle.rectWidth >= this.topLeftXPos &&
+            otherRectangle.topLeftYPos + otherRectangle.rectHeight >= this.topLeftYPos
+        ) {
             return true
         } else {
             return false
